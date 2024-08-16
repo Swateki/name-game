@@ -59,7 +59,7 @@ fn write() {
     let mut m = 0;
     println!("What is my name? Take a gander. Only 8 characters.");
     let ban = readfile(false);
-    let  mut story = 0;
+    let mut story = 0;
     let mut intime = true;
     loop {
         if ban == true{
@@ -69,7 +69,7 @@ fn write() {
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("failed to read the line. Maybe try something valid");
         m = m + 1;
-        
+        println!("{:?}", m);
         let name = guess.clone();
         let g = respond(guess, m, intime);
         println!("{:?}", g);
@@ -79,23 +79,46 @@ fn write() {
             break;
         }
         if name == "Savior\n"{
-            if m == 33 && story == 0{
-                story += 1;
+            if m == 33 {
+                //println!("Notes");
+                if story == 0 {
+                    //println!("HI!");
+                    story = 2;
+                    intime = true;
+            
+                }
             }
-            if m == 34 && story == 1 {
-                story += 1; 
+            if m == 34{ 
+                //println!("No.");
+                if story == 2 {
+                    //println!("How dare you.");
+                    story = 3; 
+                    intime = true;
+                }
             }
-            if m == 35 && story == 2 {
-                story += 1;
+            if m == 35 {
+                if story == 3 {
+                    story = 4;
+                    intime = true;
+                }
             }
-            if m == 36 && story == 3 {
-                story += 1;
+            if m == 36 {
+                if story == 4 {
+                    story = 5;
+                    intime = true;
+                }
             }
-            if m == 37 && story == 4 {
-                story += 1;
+            if m == 37 { 
+                if story == 5 {
+                    story = 6;
+                    intime = true;
+                }
             }
-            if m == 38 && story == 5 {
-                story += 1;
+            if m == 38 {
+                if story == 6 {
+                    story = 7;
+                    intime = true;
+                }
             }
             else {
                 intime = false; 
@@ -243,7 +266,7 @@ fn respond(response: String, tries: i32, intime: bool) -> &'static str{
     if response == "Savior\n"{
         if intime == true{
             if tries == 33 {
-                return "I'm sorry you will not find a savor in the truth."
+                return "I'm sorry you will not find a savior in the truth."
             }
             if tries == 34 {
                 return "STOP TRYING TO FIND IT!"
@@ -264,11 +287,11 @@ fn respond(response: String, tries: i32, intime: bool) -> &'static str{
                 return "I have no more story to tell. I wish you on your way."
             }
             else {
-                return "No I'm no savor."
+                return "I am not anyone you need to know."
             }
         }
         else {
-            return "No I'm no savor. "
+            return "No I'm no savior. "
         }
     }
     if response == "Way\n"{
