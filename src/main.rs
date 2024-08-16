@@ -69,7 +69,6 @@ fn write() {
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("failed to read the line. Maybe try something valid");
         m = m + 1;
-        println!("{:?}", m);
         let name = guess.clone();
         let g = respond(guess, m, intime);
         println!("{:?}", g);
@@ -78,51 +77,19 @@ fn write() {
             let ban = readfile(true);
             break;
         }
-        if name == "Savior\n"{
-            if m == 33 {
-                //println!("Notes");
-                if story == 0 {
-                    //println!("HI!");
-                    story = 2;
-                    intime = true;
-            
-                }
-            }
-            if m == 34{ 
-                //println!("No.");
-                if story == 2 {
-                    //println!("How dare you.");
-                    story = 3; 
+        if m == 33 || m == 34 || m == 35 || m == 36 || m == 37 || m == 38 || m == 39{
+            if name == "Savior\n" {
+                if intime == true {
                     intime = true;
                 }
-            }
-            if m == 35 {
-                if story == 3 {
-                    story = 4;
-                    intime = true;
-                }
-            }
-            if m == 36 {
-                if story == 4 {
-                    story = 5;
-                    intime = true;
-                }
-            }
-            if m == 37 { 
-                if story == 5 {
-                    story = 6;
-                    intime = true;
-                }
-            }
-            if m == 38 {
-                if story == 6 {
-                    story = 7;
-                    intime = true;
-                }
+
             }
             else {
-                intime = false; 
+                intime = false;
             }
+        }
+        if m >= 40 {
+            intime = false;
         }
         if name == "John\n"{
             println!("It took you {:?} tries", m);
