@@ -59,8 +59,8 @@ fn write() {
     let mut m = 0;
     println!("What is my name? Take a gander. Only 8 characters.");
     let ban = readfile(false);
-    let story = 0;
-    let intime = true
+    let  mut story = 0;
+    let mut intime = true;
     loop {
         if ban == true{
             println!("Oh wait. You've been banned.");
@@ -68,34 +68,34 @@ fn write() {
         }
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("failed to read the line. Maybe try something valid");
-        println!("{:?}", guess.clone());
         m = m + 1;
         
         let name = guess.clone();
         let g = respond(guess, m, intime);
+        println!("{:?}", g);
         if name == "Yourmom\n"{
             println!("You're banned.");
             let ban = readfile(true);
             break;
         }
-        if response == "Savor\n"{
-            if tries == 33 && story == 0{
+        if name == "Savor\n"{
+            if m == 33 && story == 0{
                 story += 1;
             }
-            if tries == 34 && story == 1 {
+            if m == 34 && story == 1 {
                 story += 1; 
             }
-            if tries == 35 && story == 2 {
+            if m == 35 && story == 2 {
                 story += 1;
             }
-            if tries == 36 && story == 3 {
+            if m == 36 && story == 3 {
                 story += 1;
             }
-            if tries == 37 && story == 4 {
+            if m == 37 && story == 4 {
                 story += 1;
             }
-            if tries == 38 && story == 5 {
-                story +=;
+            if m == 38 && story == 5 {
+                story += 1;
             }
             else {
                 intime = false; 
@@ -106,7 +106,7 @@ fn write() {
             break;
         }
         if name == "Youremom\n"{
-            prinln!("You're banned.");
+            println!("You're banned.");
             let ban = readfile(true);
             break;
         }
@@ -176,11 +176,11 @@ fn respond(response: String, tries: i32, intime: bool) -> &'static str{
         return "You will be."
     }
     if response == "Thetruth\n" {
-        else {
-            return "Don't try to find it, for your sake."
-        }
         if tries >= 10 {
             return "You seek what may be most deadly. I send you on a quest."
+        }
+        else {
+            return "Don't try to find it, for your sake."
         }
     }
     if response == "Quest\n" {
@@ -232,7 +232,7 @@ fn respond(response: String, tries: i32, intime: bool) -> &'static str{
             return "Like all things are. From mistakes of the past we must try again"
         }
     }
-    if responese == "Path\n" {
+    if response == "Path\n" {
         if tries == 32 {
             return "The truth is strange. It is both the savor and death of life."
         }
