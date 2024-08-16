@@ -78,7 +78,7 @@ fn write() {
             let ban = readfile(true);
             break;
         }
-        if name == "Savor\n"{
+        if name == "Savior\n"{
             if m == 33 && story == 0{
                 story += 1;
             }
@@ -234,13 +234,13 @@ fn respond(response: String, tries: i32, intime: bool) -> &'static str{
     }
     if response == "Path\n" {
         if tries == 32 {
-            return "The truth is strange. It is both the savor and death of life."
+            return "The truth is strange. It is both the savior and death of life."
         }
         else {
             return "You need to look for one. Hop to it."
         }
     }
-    if response == "Savor\n"{
+    if response == "Savior\n"{
         if intime == true{
             if tries == 33 {
                 return "I'm sorry you will not find a savor in the truth."
